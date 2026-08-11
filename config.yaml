@@ -1,0 +1,71 @@
+paths:
+  work_dir: "./data"                  
+  cohort_file: "cohort.xlsx"
+  chroma_dir: "chroma_db"
+  templates:                          # consent-type label
+    妇科手术知情同意书:                  # template filename in work_dir
+    腹腔镜手术知情同意书:
+
+fields:                               
+  patient_id: "就诊号"
+  consent_type: "知情同意书类型"
+  age: "年龄"
+  diagnosis: "术前诊断"
+  procedure: "病案手术名称"
+  indication: "手术指征"
+  contraindication: "手术禁忌及时机"
+
+
+patient_fields:
+  - 年龄
+  - 民族
+  - 籍贯
+  - 婚姻
+  - 术前诊断
+  - 病案手术名称
+  - 手术指征
+  - 手术禁忌及时机
+  - 术前准备
+
+consent_titles:
+  腹腔镜: "腹腔镜手术知情同意书"
+  妇科: "妇科手术知情同意书"
+consent_titles_default: "手术知情同意书"
+
+knowledge_base:
+  collection: "gyn_consent_kb"
+  distance_metric: "cosine"           #
+  chunk_size: 512
+  chunk_overlap: 64
+  min_chunk_chars: 20
+  embed_batch_size: 16
+  context_injection: true            
+
+retrieval:
+  top_k_retrieve: 20                 
+  top_n_per_query: 2                  
+  top_k_final: 6                     
+  age_menopause_threshold: 50
+  age_fertility_threshold: 40
+
+servers:
+  embed_url: "http://localhost:18080/v1/embeddings"
+  rerank_url: "http://localhost:18081/v1/rerank"
+  timeout: 180
+  retries: 3
+
+generation:
+  temperature: 0.3
+  top_p: 0.9
+  sleep_seconds: 1
+  system_prompt: >-
+    你是一名资深妇科肿瘤专家，擅长撰写既符合专业和法律标准、又能让患者读懂的知情同意书。
+    你的文字风格专业、客观、尊重，不使用过度情感化表达。
+
+models:
+  my_model:
+    api_model_string: ""              
+    base_url: ""                     
+    api_key_env: "MY_MODEL_API_KEY"   
+
+ 

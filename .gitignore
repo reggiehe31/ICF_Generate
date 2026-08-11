@@ -1,0 +1,19 @@
+# credentials
+.env
+
+# working data — never commit
+data/
+*.xlsx
+*.xls
+
+# generated artefacts
+generated_*/
+retrieval_logs_*/
+chroma_db/
+processed_files.json
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
