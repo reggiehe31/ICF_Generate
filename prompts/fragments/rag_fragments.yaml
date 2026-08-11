@@ -1,0 +1,21 @@
+v2:
+  RAG_OPENING_REQUIREMENT: ""
+  RAG_CONTEXT_BLOCK: ""
+  RAG_PRINCIPLE_GROUNDING: ""
+  RAG_BOLD_TARGETS: ""
+  RAG_SEC1_DIAGNOSIS: ""
+  RAG_SEC1_SURGERY: ""
+  RAG_RISK_SITUATION: ""
+  RAG_RISK_STRATEGY: ""
+  RAG_SEC5_RANGE: ""
+
+v3:
+  RAG_OPENING_REQUIREMENT: "；(c) 结合下方【专家知识库补充参考】深度解析风险，**明确指出参考的权威知识库来源，并将所有涉及的客观数据转化为大致的区间范围**"
+  RAG_CONTEXT_BLOCK: "\n【专家知识库补充参考（RAG提供，用于丰富医学解释的专业度）】\n{retrieved_context}\n\n"
+  RAG_PRINCIPLE_GROUNDING: "\n   - 结合【专家知识库补充参考】的内容，使医学解释更加准确、前沿，但不能脱离患者实际情况"
+  RAG_BOLD_TARGETS: "\n     * **所有的权威参考来源（如UpToDate、NCCN指南）**；\n     * **所有的数据区间（如约5%-10%）**。"
+  RAG_SEC1_DIAGNOSIS: "参考知识库深入解释该疾病的病理特征，简要说明指南来源并给出相关的区间范围数据；"
+  RAG_SEC1_SURGERY: "参考知识库具体解释手术要切除哪些特定组织以及为什么要切除；"
+  RAG_RISK_SITUATION: "提取知识库中的具体解剖关系深度解释，自然地提及知识库来源（如\"据国际妇科指南统计\"），涉及出血量、发生率等数据必须且只能使用区间范围（如300-500ml、1%-3%），严禁使用单一数值；"
+  RAG_RISK_STRATEGY: "提取知识库中提到的具体医疗干预手段或指南策略详细说明，严禁使用无效套话；"
+  RAG_SEC5_RANGE: "；时间数据请用大致范围如\"1-2天后\"、\"遵医嘱在合适时机\"，替代单一确切天数"
